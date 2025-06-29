@@ -624,7 +624,7 @@ class ChatTable:
                             EXISTS (
                                 SELECT 1 
                                 FROM json_each(Chat.chat, '$.messages') AS message 
-                                WHERE LOWER(message.value->>'content') LIKE '%' || :search_text || '%'
+                                WHERE LOWER(json_extract(message.value, '$.content')) LIKE '%' || :search_text || '%'
                             )
                             """
                         )
