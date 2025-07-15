@@ -15,6 +15,7 @@
 
 	import ChevronUp from '$lib/components/icons/ChevronUp.svelte';
 	import ChevronDown from '$lib/components/icons/ChevronDown.svelte';
+	import { WEBUI_BASE_URL } from '$lib/constants';
 
 	const i18n = getContext('i18n');
 
@@ -77,7 +78,7 @@
 	let showLeaderboardModal = false;
 	let selectedModel = null;
 
-	const openFeedbackModal = (model) => {
+	const openLeaderboardModelModal = (model) => {
 		showLeaderboardModal = true;
 		selectedModel = model;
 	};
@@ -505,7 +506,7 @@
 				{#each sortedModels as model, modelIdx (model.id)}
 					<tr
 						class="bg-white dark:bg-gray-900 dark:border-gray-850 text-xs group cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-850/50 transition"
-						on:click={() => openFeedbackModal(model)}
+						on:click={() => openLeaderboardModelModal(model)}
 					>
 						<td class="px-3 py-1.5 text-left font-medium text-gray-900 dark:text-white w-fit">
 							<div class=" line-clamp-1">
@@ -516,7 +517,7 @@
 							<div class="flex items-center gap-2">
 								<div class="shrink-0">
 									<img
-										src={model?.info?.meta?.profile_image_url ?? '/favicon.png'}
+										src={model?.info?.meta?.profile_image_url ?? `${WEBUI_BASE_URL}/favicon.png`}
 										alt={model.name}
 										class="size-5 rounded-full object-cover shrink-0"
 									/>

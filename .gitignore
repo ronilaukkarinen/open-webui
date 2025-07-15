@@ -1,3 +1,8 @@
+# Custom
+.webui_secret_key
+cost_tracker_data.json
+data/
+
 .DS_Store
 node_modules
 /build
