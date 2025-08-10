@@ -2,7 +2,8 @@
 .webui_secret_key
 cost_tracker_data.json
 data/
-
+x.py
+yarn.lock
 .DS_Store
 node_modules
 /build
@@ -17,7 +18,8 @@ vite.config.ts.timestamp-*
 __pycache__/
 *.py[cod]
 *$py.class
-
+.nvmrc
+CLAUDE.md
 # C extensions
 *.so
 
